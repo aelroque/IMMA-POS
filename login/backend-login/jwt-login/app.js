@@ -81,7 +81,7 @@ app.post("/login", async (req, res) => {
     //Check if the password matches using bcrypt
     const validPassword = await bcrypt.compare(password, user.rows[0].password);
     if (!validPassword) {
-      return res.status(401).json("Password or Email is incorrect.");
+      return res.status(401).json("Password or Username is incorrect.");
     }
 
     //generate and return the JWT
