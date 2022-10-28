@@ -1,4 +1,4 @@
-import { connectDatabase } from "./pool.js";
+import { connectDatabase } from "../../product/product_backend/pool.js";
 import bodyParser from "body-parser";
 import express, { response } from "express";
 import { v4 as uuidv4 } from "uuid";
