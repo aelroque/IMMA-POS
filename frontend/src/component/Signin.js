@@ -1,10 +1,11 @@
 import axios from 'axios';
-import { Link, redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Container, Form, Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
 
 function Signin() {
+  
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -28,8 +29,8 @@ function Signin() {
       );
       console.log(response);
       setSuccess(true);
-      setUsername('');
-      setPassword('');
+      setUsername("");
+      setPassword("");
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
@@ -43,6 +44,12 @@ function Signin() {
     }
   };
 
+    const signoutHandler = () => {
+      localStorage.removeItem('userInfo');
+      localStorage.removeItem('token');
+      window.location.href = 'signin';
+    };
+
   return (
     <Container className="small-container">
       <Helmet>
@@ -52,8 +59,15 @@ function Signin() {
         <section>
           <h1>Login Success!</h1>
           <p>
-            <a href="#store">Link to Store</a>
+            <Link to="/store">Store</Link><br/>
+            <Link to="/products/add">Add Product</Link>
+            <br />
+            <Link to="/products">View Products</Link>
+            <br />
           </p>
+          <Link to="/products/add" onClick={signoutHandler}>
+            Signout
+          </Link>
         </section>
       ) : (
         <section>
@@ -80,11 +94,13 @@ function Signin() {
               <Button type="submit">Sign In</Button>
             </div>
             <div className="mb-3">
-              New user? <Link to={`/signin?redirect=${redirect}`}>Sign-Up</Link>
+              New user?
+              <Link to="/register">Register</Link>
             </div>
           </Form>
         </section>
-      )},
+      )}
+      ,
     </Container>
   );
 }
