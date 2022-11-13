@@ -52,6 +52,7 @@ function Signin() {
         <section>
           <h1>Login Success!</h1>
           <p>
+<<<<<<< Updated upstream
             <a href="#store">Link to Store</a>
           </p>
         </section>
