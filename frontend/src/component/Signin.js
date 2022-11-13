@@ -59,15 +59,10 @@ function Signin() {
         <section>
           <h1>Login Success!</h1>
           <p>
-            <Link to="/store">Store</Link><br/>
-            <Link to="/products/add">Add Product</Link>
-            <br />
-            <Link to="/products">View Products</Link>
-            <br />
-          </p>
-          <Link to="/products/add" onClick={signoutHandler}>
+           <Link to="/products/add" onClick={signoutHandler}>
             Signout
           </Link>
+          </p>
         </section>
       ) : (
         <section>
