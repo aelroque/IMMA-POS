@@ -35,10 +35,8 @@ const UpdateProduct = ({ product, pid }) => {
     } catch (err) {
       if (!err?.response) {
         setErrMsg('No Server Response');
-        toast.err('No Server Response');
       } else {
         setErrMsg('Failed to add product');
-        toast.err('Failed to add product');
       }
     }
   };
