@@ -1,8 +1,11 @@
+import React from 'react';
 import axios from 'axios';
-import { Link, redirect } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { Container, Form, Button } from 'react-bootstrap';
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import './Login.css';
 
 function Signin() {
   const [username, setUsername] = useState('');
@@ -26,7 +29,7 @@ function Signin() {
           //withCredentials: true
         }
       );
-      console.log(response);
+      toast.success('Logged in successfully.');
       setSuccess(true);
       setUsername('');
       setPassword('');
@@ -44,48 +47,48 @@ function Signin() {
   };
 
   return (
-    <Container className="small-container">
+    <Container className="login-box">
       <Helmet>
         <title>Sign In</title>
       </Helmet>
+
       {success ? (
         <section>
-          <h1>Login Success!</h1>
-          <p>
-<<<<<<< Updated upstream
-            <a href="#store">Link to Store</a>
-          </p>
+          {/* <h1>Login Success!</h1> */}
+          <Navigate to="/dashboard" />
         </section>
       ) : (
         <section>
           <p>{errMsg}</p>
-          <h1 className="my-3">Sign In</h1>
+          <h1>Sign In</h1>
           <Form onSubmit={submitHandler}>
-            <Form.Group className="mb-3" controlId="username">
-              <Form.Label>Username</Form.Label>
+            <Form.Group className="user-box" controlId="username">
+              <Form.Label></Form.Label>
               <Form.Control
+                placeholder="Username"
                 onChange={(e) => setUsername(e.target.value)}
                 required
               />
             </Form.Group>
 
-            <Form.Group className="mb-3" controlId="password">
-              <Form.Label>Password</Form.Label>
+            <Form.Group className="user-box" controlId="password">
+              <Form.Label></Form.Label>
               <Form.Control
+                placeholder="Password"
                 type="password"
                 required
                 onChange={(e) => setPassword(e.target.value)}
               />
             </Form.Group>
-            <div className="mb-3">
+            <div className="user-box">
               <Button type="submit">Sign In</Button>
             </div>
             <div className="mb-3">
-              New user? <Link to={`/signin?redirect=${redirect}`}>Sign-Up</Link>
+              New user? <Link to="/register">Register</Link>
             </div>
           </Form>
         </section>
-      )},
+      )}
     </Container>
   );
 }
