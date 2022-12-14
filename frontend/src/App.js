@@ -10,7 +10,7 @@ import Dashboard from './component/page/Dashboard.js';
 import SlugView from './component/ecommerce/SlugView.js';
 import Featured from './component/ecommerce/Featured.js';
 import UpdateProduct from './component/product/UpdateProduct.js';
-import ProductSearch from './component/search/Search.js';
+import ProductSearch from './component/search/Pricelist.js';
 import SearchTable from './component/search/SearchTable.js';
 import POSPage from './component/search/POSPage.js';
 import Receiving from './component/delivery/Receiving.js';
