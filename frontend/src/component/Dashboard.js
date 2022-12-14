@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { Container, Navbar } from 'react-bootstrap';
 import { ToastContainer } from 'react-toastify';
 import { LinkContainer } from 'react-router-bootstrap';
+import Footer from './Footer';
 
 const Dashboard = () => {
   const signoutHandler = () => {
@@ -15,7 +16,7 @@ const Dashboard = () => {
   };
 
   return (
-    <Container className="container-fluid">
+    <Container>
       <Helmet>
         <title>Dashboard</title>
       </Helmet>
@@ -78,6 +79,7 @@ const Dashboard = () => {
           </Link>
         </div>
       </div>
+      <Footer />
     </Container>
   );
 };

@@ -3,9 +3,9 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Button, Col, Container, Row } from 'react-bootstrap';
 import AddProducts from './AddProduct.js';
 import { Link } from 'react-router-dom';
-import ComponentToPrint from './ComponentToPrint.js';
-import { useReactToPrint } from 'react-to-print';
+// import { useReactToPrint } from 'react-to-print';
 import { toast } from 'react-toastify';
+// import ComponentToPrint from './ComponentToPrint.js';
 import UpdateProduct from './UpdateProduct.js';
 
 function InStock() {
@@ -33,15 +33,15 @@ function InStock() {
   //   })
   // const filteredTotal = filteredItems.reduce((total, item)=> total+item.srp, 0).toFixed(2)
 
-  const componentRef = useRef();
+  // const componentRef = useRef();
 
-  const handleReactToPrint = useReactToPrint({
-    content: () => componentRef.current,
-  });
+  // const handleReactToPrint = useReactToPrint({
+  //   content: () => componentRef.current,
+  // });
 
-  const handleToPrint = () => {
-    handleReactToPrint();
-  };
+  // const handleToPrint = () => {
+  //   handleReactToPrint();
+  // };
 
   // useEffect(() => {
   //   let newTotalAmount = 0;
@@ -71,7 +71,8 @@ function InStock() {
             <Button type="button">
               <Link to="/search/table">Product Search</Link>
             </Button>
-            <Button type="button" onClick={handleToPrint}>
+            <Button type="button">
+              {/* //onClick={handleToPrint} */}
               Print
             </Button>
           </div>
